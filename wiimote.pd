@@ -1,0 +1,176 @@
+#N canvas 12 112 203 583 10;
+#X obj 1 -46 cnv 15 200 580 empty empty empty 20 12 0 14 -199928 -66577
+0;
+#X obj 39 -8 cnv 15 125 500 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 167 432 cnv 15 20 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 167 299 cnv 15 20 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 167 365 cnv 15 20 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 88 22 tgl 25 0 null WiiUp empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 63 47 tgl 25 0 null WiiLeft empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 113 47 tgl 25 0 null WiiRight empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 88 72 tgl 25 0 null WiiDown empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 80 114 tgl 40 0 null WiiA empty 17 7 0 10 -228856 -1 -1 0 1
+;
+#X obj 93 208 tgl 15 0 null WiiHome empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 54 208 tgl 15 0 null WiiMinus empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 134 208 tgl 15 0 null WiiPlus empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 90 260 ...;
+#X text 90 270 ...;
+#X text 90 280 ...;
+#X text 90 290 ...;
+#X text 90 300 ...;
+#X text 90 310 ...;
+#X text 88 223 HOME;
+#X text 137 206 +;
+#X text 57 207 -;
+#X obj 88 368 tgl 25 0 null WiiOne empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 88 409 tgl 25 0 null WiiTwo empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 262 409 764 273 Wii 0;
+#X obj -41 -52 cnv 15 380 270 empty empty empty 20 12 0 14 -245500
+-66577 0;
+#X obj 340 -52 cnv 15 380 270 empty empty empty 20 12 0 14 -208051
+-66577 0;
+#X obj 265 -52 cnv 15 140 60 empty empty empty 20 12 0 14 -146903 -66577
+0;
+#X obj 460 -14 OSCroute /wiimote;
+#X obj 460 20 OSCroute /Button /Acc;
+#X obj 460 3 OSCroute /all;
+#X obj 441 57 OSCroute /X /Y /Z /Roll /Pitch;
+#X obj 351 172 s WiiA;
+#X obj 381 192 s WiiB;
+#X obj 411 172 s WiiOne;
+#X obj 441 192 s WiiTwo;
+#X obj 472 172 s WiiMinus;
+#X obj 502 191 s WiiPlus;
+#X obj 532 172 s WiiHome;
+#X obj 441 77 s WiiX;
+#X obj 476 98 s WiiY;
+#X obj 511 78 s WiiZ;
+#X obj 547 98 s WiiRoll;
+#X obj 582 77 s WiiPitch;
+#X floatatom 476 117 5 0 0 0 - - -;
+#X floatatom 511 117 5 0 0 0 - - -;
+#X floatatom 547 117 5 0 0 0 - - -;
+#X floatatom 582 118 5 0 0 0 - - -;
+#X floatatom 441 116 5 0 0 0 - - -;
+#X obj 351 139 route /A /B /One /Two /Minus /Plus /Home /Up /Down /Left
+/Right;
+#X obj 562 191 s WiiUp;
+#X obj 593 172 s WiiDown;
+#X obj 623 191 s WiiLeft;
+#X obj 653 172 s WiiRight;
+#X obj 292 -42 dumpOSC 5600;
+#X obj 14 -18 OSCroute /wii;
+#X text 276 -22 # match this number;
+#X obj 19 42 s WiiX;
+#X obj 53 62 s WiiY;
+#X obj 88 42 s WiiZ;
+#X obj 149 86 s WiiRoll;
+#X obj 206 66 s WiiPitch;
+#X floatatom 53 81 5 0 0 0 - - -;
+#X floatatom 88 81 5 0 0 0 - - -;
+#X floatatom 149 105 5 0 0 0 - - -;
+#X floatatom 206 107 5 0 0 0 - - -;
+#X floatatom 19 62 5 0 0 0 - - -;
+#X obj -33 172 s WiiA;
+#X obj -3 192 s WiiB;
+#X obj 27 172 s WiiOne;
+#X obj 57 192 s WiiTwo;
+#X obj 88 172 s WiiMinus;
+#X obj 118 191 s WiiPlus;
+#X obj 148 172 s WiiHome;
+#X obj 178 191 s WiiUp;
+#X obj 209 172 s WiiDown;
+#X obj 239 191 s WiiLeft;
+#X obj 269 172 s WiiRight;
+#X obj -33 139 route /a /b /one /two /minus /plus /home /up /down /left
+/right;
+#X obj 14 -1 OSCroute /button /acc /orientation;
+#X obj 149 23 unpack f f;
+#X obj 19 23 unpack i i i;
+#X text -34 -43 message format from DarwiinRemote;
+#X text 458 -46 message format from dbv's MusicController;
+#X text 342 13 default 30200;
+#X text 259 13 default 5600;
+#X obj 149 65 * 2;
+#X obj 149 45 smooth;
+#X obj 206 45 smooth;
+#X connect 3 0 5 0;
+#X connect 4 0 24 0;
+#X connect 4 1 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 14 0;
+#X connect 6 0 23 0;
+#X connect 6 1 15 0;
+#X connect 6 1 19 0;
+#X connect 6 2 16 0;
+#X connect 6 2 20 0;
+#X connect 6 3 17 0;
+#X connect 6 3 21 0;
+#X connect 6 4 18 0;
+#X connect 6 4 22 0;
+#X connect 24 0 7 0;
+#X connect 24 1 8 0;
+#X connect 24 2 9 0;
+#X connect 24 3 10 0;
+#X connect 24 4 11 0;
+#X connect 24 5 12 0;
+#X connect 24 6 13 0;
+#X connect 24 7 25 0;
+#X connect 24 8 26 0;
+#X connect 24 9 27 0;
+#X connect 24 10 28 0;
+#X connect 29 0 3 0;
+#X connect 29 0 30 0;
+#X connect 30 0 54 0;
+#X connect 53 0 42 0;
+#X connect 53 1 43 0;
+#X connect 53 2 44 0;
+#X connect 53 3 45 0;
+#X connect 53 4 46 0;
+#X connect 53 5 47 0;
+#X connect 53 6 48 0;
+#X connect 53 7 49 0;
+#X connect 53 8 50 0;
+#X connect 53 9 51 0;
+#X connect 53 10 52 0;
+#X connect 54 0 53 0;
+#X connect 54 1 56 0;
+#X connect 54 2 55 0;
+#X connect 55 0 62 0;
+#X connect 55 1 63 0;
+#X connect 56 0 32 0;
+#X connect 56 0 41 0;
+#X connect 56 1 33 0;
+#X connect 56 1 37 0;
+#X connect 56 2 34 0;
+#X connect 56 2 38 0;
+#X connect 61 0 35 0;
+#X connect 61 0 39 0;
+#X connect 62 0 61 0;
+#X connect 63 0 36 0;
+#X connect 63 0 40 0;
+#X restore 81 471 pd Wii;
+#X obj 165 112 tgl 15 0 null WiiB empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 165 127 tgl 15 0 null WiiB empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 165 142 tgl 15 0 null WiiB empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 15 -7 vsl 10 500 -94 94 0 0 empty WiiPitch empty 0 -9 0 10 -262144
+-1 -1 31395 1;
+#X obj 40 -29 hsl 125 10 -180 180 0 0 empty WiiRoll empty -2 -8 0 10
+-262144 -1 -1 2378 1;
