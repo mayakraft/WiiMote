@@ -12,10 +12,11 @@
 * Screen responds to button presses
 * Smoothed pitch and roll visualizer
 
-###todo
+###to do
 * display battery life
 * turn off accelerometer after long wait to save battery
-
+* nunchuck support
+* control of 4 blue LEDs- because blinking things are fun
 
 ##Screenshot:
 ![screenshot](https://github.com/robbykraft/WiiMote/raw/master/screenshot.png)
